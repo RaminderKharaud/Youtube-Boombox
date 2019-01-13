@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!--
+Author: Raminderpreet Singh Kharaud
+version: 1.0;
+Data: 12/10/2018
+-->
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Youtube Boombox</title>
+    <link rel="stylesheet" type="text/css" href="Styles/titleBar.css"/>
+    <link rel="stylesheet" type="text/css" href="Styles/loading.css"/>
+    <link rel="stylesheet" type="text/css" href="Styles/AudioStyle.css"/>
+    <link rel="stylesheet" type="text/css" href="Styles/playerStyle.css"/>
+    <link rel="stylesheet" type="text/css" href="Styles/tabs.css"/>
+    <link rel="stylesheet" type="text/css" href="Styles/ytStyle.css"/>
+  </head>
+  <body>
+    <div id="titlebar">
+      <div id="drag-region">
+        <div id="iconDiv">
+          <img src="images/icon1.png" style="width: 33px;height: 25px;"/>
+        </div>
+        <div id="window-title">
+          <span style="margin-left: 9px;color:#f7f6b2;">Youtube Boombox</span>
+        </div>
+        <div id="window-controls">
+          <div class="button" id="min-button">
+            <span>&#xE921;</span>
+          </div>
+          <div class="button" id="max-button">
+            <span>&#xE922;</span>
+          </div>
+          <div class="button" id="restore-button">
+            <span>&#xE923;</span>
+          </div>
+          <div class="button" id="close-button">
+            <span>&#xE8BB;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="loaderDiv" class="loader">
+      <div id="wrapperDiv"class="wrapper">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+      <div id="tabs" class="tab" style="margin-left: 10px;margin-top: 10px;">
+        <button class="tablinks  active" onclick="openTab(event, 'trendingTab')">Trending</button>
+        <button class="tablinks" onclick="openTab(event, 'youtubeTab')">Search</button>
+          <button class="tablinks" onclick="openTab(event, 'downloaderTab')">Downloader</button>
+        <button class="tablinks" onclick="openTab(event, 'equilizerTab')">Equilizer</button>
+      </div>
+      <div id="trendingTab" class='ytTab'>
+        <table style="table-layout:fixed;margin-left: 20px">
+          <tr>
+            <td style="min-width:120px;"><p><font color='white'>Choose Topic:</font></p></td>
+            <td>
+              <select name="selectTrending" id="selectTrending" onchange="trendingVideos(false)">
+                <option selected value="/m/04rlf">Music</option>
+                <option value="/m/02mscn" >Christian music</option>
+                <option value="/m/0ggq0m">Classical Music</option>
+                <option value="/m/01lyv">Country</option>
+                <option value="/m/02lkt">Electronic music</option>
+                <option value="/m/0glt670">Hip hop music</option>
+                <option value="/m/05rwpb">Independent music</option>
+                <option value="/m/03_d0">Jazz</option>
+                <option value="/m/028sqc">Music of Asia</option>
+                <option value="/m/0g293">Music of Latin America</option>
+                <option value="/m/064t9">Pop music</option>
+                <option value="/m/06cqb">Reggae</option>
+                <option value="/m/06j6l">Rhythm and blues</option>
+                <option value="/m/06by7">Rock music</option>
+                <option value="/m/0gywn">Soul music</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+        <div id="trendingDiv" onscroll="trendingScrolled(this)" class="divResults"></div>
+      </div>
+      <div id="youtubeTab" class='ytTab' >
+        <div id="ytSearchTab" class='ytInnerDiv'>
+          <div class="searchDiv">
+            <form onsubmit="return search()">
+              <table style="table-layout:fixed;"><tr>
+              <td><input id="txtSearch" placeholder="Search Youtube..." class="searchText" type="text" name="firstname" value=""></td>
+              <td><input id="btnSubmit" class="submitButton" type="submit" value="Search"></td>
+              <td><p style="margin-left:10px;"><font color='white'>Look For:</font></p></td>
+              <td>
+                <select name="selectSearchType" id="selectSearchType">
+                  <option selected value="video">Videos</option>
+                  <option value="list" >Playlist</option>
+                </select>
+              </td>
+            </tr></table>
+            </form>
+          </div>
+          <div id="resultsDiv" onscroll="scrolled(this)" class="divResults">
+          </div>
+        </div>
+        <div id="playListDiv" class="ytInnerDiv" style="display: none;">
+           <button type="button" class="submitButton" style="font-weight: normal;margin-top: 15px;margin-left: 10px" onclick="goBackToResults()">Back to Search</button>
+           <div id="playlistNameDiv"></div>
+           <div id="playlistResultsDiv" class="divPlaylistResult" style="margin-top:5px;">
+           </div>
+        </div>
+      </div>
+      <div id="downloaderTab" class='ytTab'>
+        <div class="downloaderInnerDiv" >
+          <p class="downloaderTitle">Downloader From URL</p>
+          <form id="donwloaderForm" onsubmit="return downloader()">
+            <table><tr>
+              <td style="padding: 5px 5px;"><input id="txtLink" placeholder="Past Youtube Link here..." class="searchText" type="text" value=""></td></tr>
+              <tr><td style="padding: 15px 6px;"><input id="btnDownload" class="submitButton" type="submit" value="Download MP3"></td></tr>
+          </table>
+          </form>
+          <div><p id="errorMessage" style="color: red;"></p></div>
+        </div>
+      </div>
+      <div id="equilizerTab" class="soundTab">
+        <div style="display: flex;align-items: center;flex-direction: column;">
+          <div class="equalizer">
+            <div class="section">
+              <div class="title">HF</div>
+              <div class="sliders">
+                <div class="range-slider">
+                  <span class="scope">22</span>
+                  <input type="range" id="HS1" class="vertical" min="4700" max="22000" step="100" value="4700" data-filter="highShelf" data-param="frequency">
+                  <span class="scope-min">4.7</span>
+                  <span class="param">kHz</span>
+                </div>
+                <div class="range-slider">
+                  <span class="scope">50</span>
+                  <input type="range" id="HS2" class="vertical" min="-50" max="50" value="50" data-filter="highShelf" data-param="gain">
+                  <span class="scope-min">-50</span>
+                  <span class="param">dB</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="section">
+              <div class="title">LF</div>
+              <div class="sliders">
+                <div class="range-slider">
+                  <span class="scope">220</span>
+                  <input type="range" id="LS1" class="vertical" min="35" max="220" step="1" value="35" data-filter="lowShelf" data-param="frequency">
+                  <span class="scope-min">35</span>
+                  <span class="param">Hz</span>
+                </div>
+                <div class="range-slider">
+                  <span class="scope">50</span>
+                  <input type="range" id="LS2" class="vertical" min="-50" max="50" value="50" data-filter="lowShelf" data-param="gain">
+                  <span class="scope-min">-50</span>
+                  <span class="param">dB</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="section">
+              <div class="title">HMF</div>
+              <div class="sliders">
+                <div class="range-slider">
+                  <span class="scope">5.9</span>
+                  <input type="range" id = "HP1" class="vertical" min="800" max="5900" step="100" value="800" data-filter="highPass" data-param="frequency">
+                  <span class="scope-min">0.8</span>
+                  <span class="param">kHz</span>
+                </div>
+                <div class="range-slider">
+                  <span class="scope">12</span>
+                  <input type="range" id="HP2" class="vertical" min="0.7" max="12" step="0.1" value="0.7" data-filter="highPass" data-param="Q">
+                  <span class="scope-min">0.7</span>
+                  <span class="param">Q</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="section">
+              <div class="title">LMF</div>
+              <div class="sliders">
+                <div class="range-slider">
+                  <span class="scope">1600</span>
+                  <input type="range" id="LP1" class="vertical" min="80" max="1600" step="10" value="880" data-filter="lowPass" data-param="frequency">
+                  <span class="scope-min">80</span>
+                  <span class="param">Hz</span>
+                </div>
+                <div class="range-slider">
+                  <span class="scope">12</span>
+                  <input type="range" id="LP2" class="vertical" min="0.7" max="12" step="0.1" value="0.7" data-filter="lowPass" data-param="Q">
+                  <span class="scope-min">0.7</span>
+                  <span class="param">Q</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <table style="margin-bottom: 15px;"><tr>
+              <td class="tdstyle"><button id="Boombox" class="effectsButton" onclick="setEffect('Boombox')">Boombox</button></td>
+              <td class="tdstyle"><button id="Stereo" class="effectsButton" onclick="setEffect('Stereo')">Stereo</button></td>
+              <td class="tdstyle"><button id="Classic" class="effectsButton" onclick="setEffect('Classic')">Classic</button></td>
+            </tr>
+            <tr>
+              <td class="tdstyle"><button id="Jazz" class="effectsButton" onclick="setEffect('Jazz')">Jazz</button></td>
+              <td class="tdstyle"><button id="Pop" class="effectsButton" onclick="setEffect('Pop')">Pop</button></td>
+              <td class="tdstyle"><button id="Rock" class="effectsButton" onclick="setEffect('Rock')">Rock</button></td>
+            </tr>
+          </table>
+          </div>
+          <button class="resetButton" onclick="reset()">Reset</button>
+          <canvas id="canvas"></canvas>
+        </div>
+      </div>
+      <div id="PlayingInfo" class="infoDiv">
+        <div style="float: left;">
+          <table><tr>
+            <td id="playingStatus">Now Playing:</td>
+            <td style="overflow: hidden;"><div id="titleBar" class="scroll-left"></div></td>
+          </tr></table>
+        </div>
+        <div id="ytLink" style="float:right; margin-right: 10px;"></div>
+      </div>
+
+      <div id="playerDiv" class="audio green-audio-player">
+        <div id="playerHolderDiv" class="audioHolder">
+          <div class="controls">
+            <span class="current-time">0:00</span>
+            <div class="slider" data-direction="horizontal">
+              <div class="progress">
+                <div class="pin" id="progress-pin" data-method="rewind"></div>
+              </div>
+            </div>
+            <span class="total-time">0:00</span>
+          </div>
+          <div>
+            <img id="repeatButton" style="height:28px;width:28px;margin-right:20px;" src="images/Repeat.png">
+          </div>
+          <div class="volume">
+            <div class="volume-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="#fff" fill-rule="evenodd" d="M14.667 0v2.747c3.853 1.146 6.666 4.72 6.666 8.946 0 4.227-2.813 7.787-6.666 8.934v2.76C20 22.173 24 17.4 24 11.693 24 5.987 20 1.213 14.667 0zM18 11.693c0-2.36-1.333-4.386-3.333-5.373v10.707c2-.947 3.333-2.987 3.333-5.334zm-18-4v8h5.333L12 22.36V1.027L5.333 7.693H0z" id="speaker"/>
+              </svg>
+            </div>
+            <div class="volume-controls hidden">
+              <div class="slider" data-direction="vertical">
+                <div class="progress">
+                  <div class="pin" id="volume-pin" data-method="changeVolume"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+          <div id="playerButtonsDiv" class="playerbtnsDiv">
+            <div id="prevButtonDiv">
+              <img id="prevButton" style="height:50px;width:50px;" src="images/Play-Back.png">
+            </div>
+            <div class="loading">
+              <div class="spinner"></div>
+            </div>
+            <div class="play-pause-btn" style="display:block;">
+              <img id="playPause" style="height:50px;width:50px;" src="images/Play-Button.png">
+            </div>
+            <div id="nextButtonDiv">
+              <img id="nextButton" style="height:50px;width:50px;" src="images/Play-Forward.png">
+            </div>
+        </div>
+        <audio id="audio">
+          <source id="audioSource" src="">
+        </audio>
+      </div>
+    <script type="text/javascript" src="Js/YoutubeData.js"></script>
+    <script type="text/javascript" src="Js/titleBar.js"></script>
+    <script type="text/javascript" src="Js/tabs.js"></script>
+    <script type="text/javascript" src="Js/Audio.js"></script>
+    <script type="text/javascript" src="Js/soundVisualization.js"></script>
+    <script type="text/javascript" src="Js/Equalizer.js"></script>
+    <script type="text/javascript" src="Js/ytStuff.js"></script>
+    <script type="text/javascript" src="Js/publicPlaylist.js"></script>
+    <script type="text/javascript" src="Js/trending.js"></script>
+    <script type="text/javascript" src="Js/convertToMp3.js"></script>
+    <script src="https://apis.google.com/js/client.js"></script>
+  </body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        

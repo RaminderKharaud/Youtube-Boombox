@@ -1,0 +1,193 @@
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border: none;
+    padding-top: 4px;
+    display: none;
+}
+.tabsContainer{
+  width: 100%; /*calc(100% - 2px);*/
+  height: 100%;
+  margin-bottom: 100px;
+}
+
+.soundTab{
+ -webkit-box-sizing: border-box;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #282b30;
+  padding: 6px 12px;
+  margin-bottom: 118px;
+  /*border: 1px solid white;
+  border-left: none;
+  border-right: none;
+  border-bottom: none; */
+  animation: fadeEffect 1s;
+}
+.ytTab{
+  -webkit-box-sizing: border-box;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 6px 12px;
+  background: #282b30;
+  animation: fadeEffect 1s;
+  margin-top: 2px;
+  position: relative;
+  margin-bottom: 105px;
+}
+.ytInnerDiv
+{
+  -webkit-box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #282b30;
+  position: relative;
+  animation: fadeEffect 1s;
+}
+.downloaderInnerDiv{
+  -webkit-box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: top;
+  width: 100%;
+  height: 100%;
+}
+.downloaderTitle{
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: #282b30;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    font-size: 18px;
+    color: #cdd1d8;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0px 9px;
+    transition: 0.3s;
+    height: 39px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #393c42;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  /*  background-color: #282b30; */
+  border-bottom: 3px solid #d2d5db;
+}
+
+/* Style the tab content
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+*/
+.tabcontent {
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+#selectTrending
+{
+  width: 200px;
+  -webkit-user-select: none;
+  background: #282b30;
+  color: white;
+  font-size: 16px;
+}
+#selectTrending option
+{
+  width: 200px;
+  background: #282b30;
+  -webkit-user-select: none;
+  color: white;
+  font-size: 16px;
+}
+#selectSearchType
+{
+  width: 100px;
+  -webkit-user-select: none;
+  background: #282b30;
+  color: white;
+  font-size: 16px;
+  margin-left: 6px;
+}
+#selectSearchType option
+{
+  width: 100px;
+  background: #282b30;
+  -webkit-user-select: none;
+  color: white;
+  font-size: 16px;
+}
+.tdstyle{
+  padding:3px 3px;
+}
+
+.effectsButton {
+-moz-box-shadow:inset 0px 1px 0px 0px #50565c;
+-webkit-box-shadow:inset 0px 1px 0px 0px #50565c;
+box-shadow:inset 0px 1px 0px 0px #50565c;
+background:-webkit-linear-gradient(top, #4f595e 5%, #000000 100%);
+background:-o-linear-gradient(top, #4f595e 5%, #000000 100%);
+
+background:linear-gradient(to bottom, #4f595e 5%, #000000 100%);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f595e', endColorstr='#000000',GradientType=0);
+background-color:#4f595e;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+border-radius:3px;
+border:1px solid #01080d;
+display:inline-block;
+cursor:pointer;
+color:#ffffff;
+font-family:Courier New;
+font-size:22px;
+padding:3px 5px;
+text-decoration:none;
+text-shadow:0px 1px 0px #01050a;
+outline: none;
+width: 110px;
+}
+/*
+.effectsButton:hover {
+  background:-webkit-linear-gradient(top, #f44242 5%, #000000 100%);
+} */
+.effectsButton:active {
+background:-webkit-linear-gradient(top, #000000 5%, #4f595e 100%);
+background:-o-linear-gradient(top, #000000 5%, #4f595e 100%);
+background:linear-gradient(to bottom, #000000 5%, #4f595e 100%);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#4f595e',GradientType=0);
+background-color:#000000;
+position:relative;
+top:1px;
+}

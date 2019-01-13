@@ -1,0 +1,192 @@
+.searchDiv{
+  margin-top: 5px;
+  display: block;
+  align: center;
+  width: 100%;
+  /*border-bottom: 1px solid #cdd1d8;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; */
+}
+.divResults{
+  height: 100%;
+  width: calc(100% - 2px);
+  overflow: auto;
+  margin-top: 5px;
+  color: white;
+}
+.divPlaylistResult{
+  height: 100%;
+  width: calc(100% - 2px);
+  overflow: auto;
+  margin-top: 5px;
+  color: white;
+  margin-bottom: 15px;
+}
+.listNameStyle
+{
+  color: yellow;
+  font-size: 17px;
+  font-style: italic;
+  margin-top: 20px;
+}
+.infoDiv{
+  -webkit-box-sizing: border-box;
+  width: calc(100% - 2px);
+  height: 25px;
+  font-size:16px;
+  color: white;
+  padding: 0px 5px;
+  background: #0c0c0c;
+  display: none;
+  position: absolute;
+  bottom: 100px;
+}
+
+.searchText{
+  background: #fff;
+  width: 450px;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+.resultTables{
+  margin-top: 10px;
+}
+.trendingResultTables{
+  margin-top: 10px;
+}
+input[type="text"]
+{
+  background-color : #282b30;
+  font-size:16px;
+  color: white;
+  outline: none;
+  height: 20px;
+  border: 1px solid white;
+  padding: 1px 8px;
+}
+
+.submitButton {
+-moz-box-shadow:inset 0px 1px 0px 0px #50565c;
+-webkit-box-shadow:inset 0px 1px 0px 0px #50565c;
+box-shadow:inset 0px 1px 0px 0px #50565c;
+background:-webkit-linear-gradient(top, #4f595e 5%, #000000 100%);
+background:-o-linear-gradient(top, #4f595e 5%, #000000 100%);
+
+background:linear-gradient(to bottom, #4f595e 5%, #000000 100%);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f595e', endColorstr='#000000',GradientType=0);
+background-color:#4f595e;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+border-radius:3px;
+border:1px solid #01080d;
+display:inline-block;
+cursor:pointer;
+color:#ffffff;
+font-family:Courier New;
+font-size:18px;
+font-weight: bold;
+padding:3px 10px;
+text-decoration:none;
+text-shadow:0px 1px 0px #01050a;
+outline: none;
+}
+.submitButton:hover {
+  background:-webkit-linear-gradient(top, #f44242 5%, #000000 100%);
+}
+.submitButton:active {
+background:-webkit-linear-gradient(top, #000000 5%, #4f595e 100%);
+background:-o-linear-gradient(top, #000000 5%, #4f595e 100%);
+background:linear-gradient(to bottom, #000000 5%, #4f595e 100%);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#4f595e',GradientType=0);
+background-color:#000000;
+position:relative;
+top:1px;
+}
+
+
+a {
+  text-decoration: none;
+  margin-right: 5px;
+}
+/* unvisited link */
+a:link {
+    color: white;
+}
+
+/* visited link */
+a:visited {
+
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+}
+
+/* selected link */
+a:active {
+
+}
+.youtubeLink{
+  font-size: 15px;
+  text-decoration: underline;
+  color: yellow;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #888;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background:#555;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.resultsLoading {
+  width: 35px;
+  height: 35px;
+  color:#ffffff;
+  font-family:Courier New;
+  font-size:18px;
+  font-weight: bold;
+  margin-left: 45%;
+  margin-top: 10%;
+}
+
+.scroll-left {
+
+  width: auto;
+  max-width: 400px;
+  color: white;
+  white-space:nowrap;
+  /* Starting position */
+
+  transform: translateX(100%);
+  /* Apply animation to this element */
+
+
+  animation: scroll-left 12s linear infinite;
+}
+/* Move it (define the animation) */
+
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

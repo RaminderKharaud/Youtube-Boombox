@@ -1,0 +1,163 @@
+html,body {
+ height: calc(100% - 2px);
+}
+
+body {
+
+ display: flex;
+ justify-content: center;
+ align-items: right;
+ border-right: 1px solid #6f7175;
+ border-left: 1px solid #6f7175;
+ border-top: 1px solid #6f7175;
+ border-bottom: 1px solid #6f7175;
+ background: #282b30;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+ flex-direction: column;
+ font-family: 'Roboto', sans-serif;
+ user-select: none;
+ margin: 0;
+}
+#myProgress {
+  margin-left: 10px;
+  margin-bottom: 5px;
+  width: calc(100% - 40px);
+  background-color: grey;
+  height: 30px;
+  border: 2px solid #fc850f;
+  display: none;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #fc850f;
+  display: block;
+  align: right;
+  padding-left: 5px;
+}
+p
+{
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: white;
+  margin-left: 10px;
+  margin-bottom: 2px;
+  margin-top: 2px;
+
+}
+
+.cancelButton {
+-webkit-box-shadow:inset 0px 1px 0px 0px #50565c;
+box-shadow:inset 0px 1px 0px 0px #50565c;
+background:-webkit-linear-gradient(top, #4f595e 5%, #000000 100%);
+background:-o-linear-gradient(top, #4f595e 5%, #000000 100%);
+
+background:linear-gradient(to bottom, #4f595e 5%, #000000 100%);
+background-color:#4f595e;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+border-radius:3px;
+border:1px solid #01080d;
+display:inline-block;
+cursor:pointer;
+color:#ffffff;
+font-family:Courier New;
+font-size:18px;
+font-weight: bold;
+padding:3px 10px;
+text-decoration:none;
+text-shadow:0px 1px 0px #01050a;
+outline: none;
+
+}
+.cancelButton:active {
+background:-webkit-linear-gradient(top, #000000 5%, #4f595e 100%);
+background:-o-linear-gradient(top, #000000 5%, #4f595e 100%);
+background:linear-gradient(to bottom, #000000 5%, #4f595e 100%);
+background-color:#000000;
+position:relative;
+top:1px;
+}
+.buttonDiv{
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+#titlebar {
+  -webkit-box-sizing: border-box;
+  top: 0px;
+  left: 6px;
+  padding: 4px;
+  width: calc(100% - 2px);
+  color: white;
+  height: 34px;
+
+}
+#titlebar #drag-region {
+ display: flex;
+  width: calc(100% - 2px);
+  height: 34px;
+  -webkit-app-region: drag;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+#window-title {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 16px;
+  margin-left: 8px;
+  overflow-x: hidden;
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+#window-title span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+}
+#window-controls {
+  -webkit-app-region: no-drag;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 34px;
+  width: 80px;
+  font-family: "Segoe MDL2 Assets";
+  font-size: 10px;
+}
+#window-controls .button {
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 30px;
+  margin-left: 0px;
+  user-select: none;
+  cursor: default;
+  opacity: 0.8;
+}
+#window-controls .button:hover {
+  background: rgba(255,255,255,0.2);
+  opacity: 1;
+}
+#window-controls #close-button:hover {
+  background: #E81123;
+}
+
+#window-controls #min-button {
+  grid-column: 1;
+}
+
+#window-controls #close-button {
+  grid-column: 3;
+}
