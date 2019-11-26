@@ -11,6 +11,6 @@ from youtube. <br/><br/> Dependencies include [youtube v3 data API](https://deve
 
 ![screen shot2](/images/screenShot3.png)
 
-<br/>Multiple files can be downloaded and coverted to Mp3 simultaneously<br/>
+<br/><b>Multiple files can be downloaded and coverted to Mp3 simultaneously</b><br/><br/>
 
 ![screen shot3](/images/screenShot4.png)
