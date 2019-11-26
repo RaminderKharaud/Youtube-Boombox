@@ -14,3 +14,7 @@ from youtube. <br/><br/> Dependencies include [youtube v3 data API](https://deve
 <br/><b>Multiple files can be downloaded and coverted to Mp3 simultaneously</b><br/><br/>
 
 ![screen shot3](/images/screenShot4.png)
+
+<br/><b>User can directly download Mp3 by copy pasting the URL of youtube page</b><br/><br/>
+
+![screen shot4](/images/screenShot5.png)
