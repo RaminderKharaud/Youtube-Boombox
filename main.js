@@ -19,18 +19,21 @@ function createWindow () {
   }
   // Create the browser window.
   win = new BrowserWindow({
+    webPreferences: {
+      nodeIntegration: true
+    },
     width: 800,
-    height: 700,
+    height: 650,
     minWidth: 800,
     minHeight: 500,
     icon: path.join('images/icon1.png'),
     frame: false });
 
   // and load the index.html of the app.
-  win.loadFile(path.join(__dirname,'../Audio.html'));
+  win.loadFile(path.join(__dirname,'index.html'));
 
   // Open the DevTools.
-  //win.webContents.openDevTools();
+//  win.webContents.openDevTools();
 
   // Emitted when the window is closed.
   win.on('closed', () => {
@@ -93,7 +96,7 @@ ipcMain.on('saveMp3File', (event, videoInfo) => {
       }
 
     }else{
-      alert("filename/path or extension is wrong");
+      //alert("filename/path or extension is wrong");
       return;
     }
   });
@@ -103,6 +106,9 @@ ipcMain.on('saveMp3File', (event, videoInfo) => {
 function creatDownLoadWin(videoInfo,fileName,index){
   // Create the browser window.
   downloadWin[index] = new BrowserWindow({
+    webPreferences: {
+           nodeIntegration: true
+       },
     width: 500,
     height: 230,
     minWidth: 500,
@@ -110,7 +116,7 @@ function creatDownLoadWin(videoInfo,fileName,index){
     frame: false});
     //downloadWin[index].webContents.openDevTools()
   // and load the index.html of the app.
-  downloadWin[index].loadFile(path.join(__dirname,'../downloaderWin/downloader.html'));
+  downloadWin[index].loadFile(path.join(__dirname,'progressWin/progress.html'));
   //downloadWin[index].webContents.openDevTools()
   //send data to newly created window
   downloadWin[index].webContents.on('did-finish-load', function() {

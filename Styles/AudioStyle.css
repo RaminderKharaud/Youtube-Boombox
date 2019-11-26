@@ -29,9 +29,10 @@ body {
 .equalizer {
   display: flex;
   width: 400px;
-  align: center;
+  align-items: center;
   justify-content: center;
   margin-bottom: 25px;
+  min-height: 200px;
 }
 
 .section {
@@ -105,8 +106,8 @@ body {
 
   #canvas {
     width: 99%;
-    height: 140px;
-    margin-top: 10px;
+    height: 100px;
+    margin-top: 1px;
   }
   .resetButton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #50565c;
@@ -131,6 +132,7 @@ body {
 	text-decoration:none;
 	text-shadow:0px 1px 0px #01050a;
   outline: none;
+  min-height: 35px;
 }
 .resetButton:hover {
   background:-webkit-linear-gradient(top, #f44242 5%, #000000 100%);

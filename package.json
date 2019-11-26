@@ -2,7 +2,7 @@
   "name": "practice",
   "version": "1.0.0",
   "description": "",
-  "main": "Js/main.js",
+  "main": "main.js",
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^3.0.8",
+    "electron": "^6.0.12",
     "fluent-ffmpeg": "^2.1.2"
   },
   "dependencies": {
