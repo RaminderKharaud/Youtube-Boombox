@@ -1,0 +1,80 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "youtube boombox",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "searchTextIntent",
+          "slots": [
+            {
+              "name": "searchText",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "play {searchText}",
+            "search {searchText}",
+            "search for {searchText}",
+            "search for track {searchText}",
+            "search for song {searchText}",
+            "search and play {searchText}",
+            "play track {searchText}",
+            "play song {searchText}",
+            "search for {searchText} and play the first result",
+            "search {searchText} and play the first result"
+          ]
+        },
+        {
+          "name": "AMAZON.PreviousIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NextIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PauseIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ResumeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NoIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.LoopOffIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.LoopOnIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": []
+        }
+      ],
+      "types": []
+    }
+  },
+  "version": "17"
+}
