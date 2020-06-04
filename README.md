@@ -1,4 +1,4 @@
-# Youtube-Boombox (with Alexa Skill)
+# Youtube-Boombox (with Alexa skill)
 Youtube Music Streaming App with Mp3 Downloader</br></br>
 Youtube Boombox is a youtube streaming app with youtube to Mp3 downloader 
 which saves user data by streaming only audio from youtube videos/playlists and lets user downlaod Mp3 audio 
